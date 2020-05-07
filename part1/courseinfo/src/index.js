@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const Header = (props) => {
   return(
-  <h1>{props.name}</h1>
+  <h1>{props.array.name}</h1>
   )
 }
 
@@ -30,14 +30,14 @@ const Content = (props) => {
 
 const Footer = (props) => {
   return(
-    <p>Number of exercises {props.ex1 + props.ex2 + props.ex3}</p>
+    <p>Number of exercises {props.array.part[0].exercises + props.array.part[1].exercises + props.array.part[2].exercises}</p>
   )
 }
 
 
 const App = () => {
-  const course = 'Half Stack application development'
   const array = {
+    name:'Half Stack application development',
     part:[
       {
         name:'Fundamentals of React',
@@ -56,9 +56,9 @@ const App = () => {
 
   return (
     <div>
-      <Header name={course}/>
+      <Header array = {array}/>
       <Content array = {array}/>
-      <Footer ex1={array.part[0].exercises} ex2={array.part[1].exercises} ex3={array.part[2].exercises}/>
+      <Footer array = {array}/>
     </div>
   )
 }
